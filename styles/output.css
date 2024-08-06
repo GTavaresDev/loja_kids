@@ -899,7 +899,7 @@ body{
 .service-container {
   width: 500px; /* largura padrão para desktop */
   height: 150px; /* altura fixa */
-  /* border: 1px solid #ccc;  opcional, para visualizar melhor os contornos */
+  border: 1px solid #ccc; /* opcional, para visualizar melhor os contornos */
   display: flex;
   flex-direction: row;
   gap: 16px;
@@ -931,6 +931,17 @@ body{
   .price-cart-container {
     flex-direction: row; /* garantir que o preço e o botão estejam lado a lado */
     justify-content: center; /* centralizar o preço e o botão */
-    gap: 8px; /* diminuir o espaço entre o preço e o botão */
+    gap: 4px; /* diminuir o espaço entre o preço e o botão */
+  }
+
+  .price-cart-container p, .price-cart-container button {
+    margin: 0; /* remover margens para aproximar mais */
+    padding: 0; /* remover padding para aproximar mais */
+  }
+
+  .price-cart-container button {
+    padding-left: 20px; /* diminuir padding do botão para aproximar mais */
+    padding-right: 20px; /* diminuir padding do botão para aproximar mais */
   }
 }
+
