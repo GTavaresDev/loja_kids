@@ -899,7 +899,7 @@ body{
 .service-container {
   width: 500px; /* largura padrão para desktop */
   height: 150px; /* altura fixa */
-  border: 1px solid #ccc; /* opcional, para visualizar melhor os contornos */
+  /* border: 1px solid #ccc;  opcional, para visualizar melhor os contornos */
   display: flex;
   flex-direction: row;
   gap: 16px;
