@@ -931,6 +931,6 @@ body{
   .price-cart-container {
     flex-direction: row; /* garantir que o preço e o botão estejam lado a lado */
     justify-content: center; /* centralizar o preço e o botão */
-    gap:20px; /* diminuir o espaço entre o preço e o botão */
+    gap: 8px; /* diminuir o espaço entre o preço e o botão */
   }
 }
