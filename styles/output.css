@@ -761,7 +761,7 @@ video {
 }
 
 .bg-home {
-  background-image: url('/assets/img_fundo_studio.png');
+  background-image: url('/assets/img_fundo_dmkids.png');
 }
 
 .bg-cover {
@@ -893,4 +893,15 @@ body{
     font-size: 1.875rem;
     line-height: 2.25rem;
   }
+}
+
+/* Fixando altura e largura para cada retangulo com as peças */
+.service-container {
+  width: 500px; /* ajuste a largura conforme necessário */
+  height: 150px; /* ajuste a altura conforme necessário */
+  /* border: 1px solid #ccc;  opcional, para visualizar melhor os contornos */
+}
+
+.info-container {
+  width: calc(100% - 72px); /* 100% menos a largura da imagem, ajuste conforme necessário */
 }

@@ -168,7 +168,7 @@ checKoutBtn.addEventListener("click", function(){
 
     // Codificar a mensagem e o número de telefone
     const message = encodeURIComponent(cartItems);
-    const phone = "61992376953";
+    const phone = "62982190366";
 
     // Abrir o WhatsApp com a mensagem e informações adicionais
     // window.open(`mailto:progressuswebsolutions@gmail.com?subject=Assunto&body=${message}%20Informações%20Adicionais:%20${addressInput.value}`, "_blank");
@@ -209,5 +209,5 @@ if(isOpen){
 
 // Criando o clique do insta 
  abrirInsta.addEventListener("click", function () {
-    window.open("https://www.instagram.com/hellentavaresbeauty/") 
+    window.open("https://www.instagram.com/dmkidsgo/") 
 })
