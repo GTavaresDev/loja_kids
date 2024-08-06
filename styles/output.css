@@ -897,11 +897,40 @@ body{
 
 /* Fixando altura e largura para cada retangulo com as peças */
 .service-container {
-  width: 500px; /* ajuste a largura conforme necessário */
-  height: 150px; /* ajuste a altura conforme necessário */
+  width: 500px; /* largura padrão para desktop */
+  height: 150px; /* altura fixa */
   /* border: 1px solid #ccc;  opcional, para visualizar melhor os contornos */
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
 }
 
 .info-container {
-  width: calc(100% - 72px); /* 100% menos a largura da imagem, ajuste conforme necessário */
+  width: calc(100% - 112px); /* largura calculada menos a largura da imagem */
+}
+
+/* Media query para dispositivos móveis */
+@media (max-width: 600px) {
+  .service-container {
+    width: 100%; /* largura total da tela */
+    flex-direction: column; /* empilhar conteúdo verticalmente */
+    align-items: center;
+    height: auto; /* altura automática */
+  }
+  
+  .info-container {
+    width: 100%; /* largura total da tela */
+    text-align: center; /* centralizar texto */
+  }
+
+  .service-container img {
+    width: 100px; /* ajuste da largura da imagem para caber melhor na tela */
+    height: 100px; /* ajuste da altura da imagem para caber melhor na tela */
+  }
+
+  .price-cart-container {
+    flex-direction: row; /* garantir que o preço e o botão estejam lado a lado */
+    justify-content: center; /* centralizar o preço e o botão */
+    gap:70px; /* diminuir o espaço entre o preço e o botão */
+  }
 }
