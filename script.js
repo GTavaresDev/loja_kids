@@ -163,7 +163,7 @@ checKoutBtn.addEventListener("click", function(){
 
     // Montar a mensagem com os itens do carrinho
     const cartItems = cart.map((item) => {
-        return `${item.name}  \n Quantidade: (${item.quantity}) \n Preço: R$${item.price}  \n\n`;
+        return `${item.name}  \n Quantidade: (${item.quantity}) \n Preço: R$${item.price}  \n\n Valor Final do pedido: ${cart-total}`;
     }).join("");
 
     // Codificar a mensagem e o número de telefone
