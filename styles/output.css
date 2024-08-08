@@ -896,76 +896,87 @@ body{
 }
 
 /* Fixando altura e largura para cada retangulo com as peças */
+/* Container principal do serviço */
+/* Container principal do serviço */
 .service-container {
-  width: 300px; /* largura padrão para desktop */
-  height: auto; /* altura automática para ajustar ao conteúdo */
+  width: 100%; /* Largura total para que a grid possa gerenciá-la */
+  height: auto; /* Altura automática para ajustar ao conteúdo */
   display: flex;
-  flex-direction: column; /* direção em coluna para empilhar a imagem e os itens */
-  align-items: center; /* centraliza o conteúdo horizontalmente */
-  gap: 16px; /* espaço entre a imagem e os itens */
+  flex-direction: column; /* Direção em coluna para empilhar a imagem e os itens */
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  gap: 16px; /* Espaço entre a imagem e os itens */
 }
 
 .image-container {
-  width: 70px; /* ajuste da largura da imagem */
-  height: 70px; /* ajuste da altura da imagem */
+  width: 70px; /* Ajuste da largura da imagem */
+  height: 70px; /* Ajuste da altura da imagem */
   display: flex;
-  justify-content: center; /* centraliza horizontalmente */
-  align-items: center; /* centraliza verticalmente */
-  overflow: hidden; /* oculta qualquer conteúdo que ultrapasse os limites do container */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites do container */
 }
 
 .service-container img {
-  width: 100%; /* garante que a imagem preencha a largura do container */
-  height: 100%; /* garante que a imagem preencha a altura do container */
-  object-fit: cover; /* ajusta a imagem dentro do container, mantendo a proporção */
+  width: 50%; /* Garante que a imagem preencha a largura do container */
+  height: 100%; /* Garante que a imagem preencha a altura do container */
+  object-fit: cover; /* Ajusta a imagem dentro do container, mantendo a proporção */
 }
 
+.info-container {
+  text-align: center; /* Centraliza o texto */
+}
 
+.price-cart-container {
+  display: flex;
+  flex-direction: row; /* Garantir que o preço e o botão estejam lado a lado */
+  justify-content: center; /* Centraliza o preço e o botão */
+  gap: 16px; /* Espaço entre o preço e o botão */
+}
+
+.price-cart-container p, .price-cart-container button {
+  margin: 0; /* Remove margens para aproximar mais */
+  padding: 0; /* Remove padding para aproximar mais */
+}
+
+.price-cart-container button {
+  padding-left: 20px; /* Diminuir padding do botão para aproximar mais */
+  padding-right: 20px; /* Diminuir padding do botão para aproximar mais */
+}
 
 /* Media query para dispositivos móveis */
 @media (max-width: 600px) {
   .service-container {
-    width: 100%; /* largura total da tela */
-    flex-direction: column; /* empilhar conteúdo verticalmente */
+    width: 100%; /* Largura total da tela */
+    flex-direction: column; /* Empilhar conteúdo verticalmente */
     align-items: center;
-    height: auto; /* altura automática */
   }
 
   .image-container {
-    width: 70px; /* ajuste da largura da imagem */
-    height: 70px; /* ajuste da altura da imagem */
-    display: flex;
-    justify-content: center; /* centraliza horizontalmente */
-    align-items: center; /* centraliza verticalmente */
+    width: 70px; /* Ajuste da largura da imagem */
+    height: 70px; /* Ajuste da altura da imagem */
   }
 
   .service-container img {
-    width: 70%; /* garante que a imagem preencha a largura do container */
-    height: auto; /* ajusta a altura proporcionalmente */
-    object-fit: cover; /* ajusta a imagem dentro do container */
+    width: 70%; /* Garante que a imagem preencha a largura do container */
+    height: auto; /* Ajusta a altura proporcionalmente */
   }
 
   .info-container {
-    width: 70%; /* largura total da tela */
-    text-align: center; /* centralizar texto */
+    width: 70%; /* Largura total da tela */
   }
 
   .price-cart-container {
-    display: flex;
-    flex-direction: row; /* garantir que o preço e o botão estejam lado a lado */
-    justify-content: center; /* centralizar o preço e o botão */
-    gap: 16px; /* espaço entre o preço e o botão */
+    flex-direction: row; /* Garantir que o preço e o botão estejam lado a lado */
+    justify-content: center; /* Centralizar o preço e o botão */
   }
 
   .price-cart-container p, .price-cart-container button {
-    margin: 0; /* remover margens para aproximar mais */
-    padding: 0; /* remover padding para aproximar mais */
+    margin: 0; /* Remove margens para aproximar mais */
+    padding: 0; /* Remove padding para aproximar mais */
   }
 
   .price-cart-container button {
-    padding-left: 20px; /* diminuir padding do botão para aproximar mais */
-    padding-right: 20px; /* diminuir padding do botão para aproximar mais */
+    padding-left: 20px; /* Diminuir padding do botão para aproximar mais */
+    padding-right: 20px; /* Diminuir padding do botão para aproximar mais */
   }
 }
-
-
