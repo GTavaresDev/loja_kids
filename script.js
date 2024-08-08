@@ -169,14 +169,14 @@ checKoutBtn.addEventListener("click", function(){
     }).join("");
     
     const finalMessage = `${cartItems}\nValor Final do pedido: R$${totalPedido.toFixed(2)}`;
-
+    
     // Codificar a mensagem e o número de telefone
-    const message = encodeURIComponent(cartItems);
+    const message = encodeURIComponent(finalMessage); // Codifica a mensagem completa, incluindo o valor final
     const phone = "62982190366";
-
+    
     // Abrir o WhatsApp com a mensagem e informações adicionais
-    // window.open(`mailto:progressuswebsolutions@gmail.com?subject=Assunto&body=${message}%20Informações%20Adicionais:%20${addressInput.value}`, "_blank");
-    window.open(`https://wa.me/${phone}?text=${message}%20Forma%20de%20pagamento:%20${addressInput.value}`, "_blank")
+    window.open(`https://wa.me/${phone}?text=${message}%20Forma%20de%20pagamento:%20${encodeURIComponent(addressInput.value)}`, "_blank");
+    
 
     // Limpar o carrinho após o pedido ser enviado
     cart = [];
