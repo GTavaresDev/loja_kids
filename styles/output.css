@@ -898,16 +898,23 @@ body{
 /* Fixando altura e largura para cada retangulo com as peças */
 .service-container {
   width: 500px; /* largura padrão para desktop */
-  height: 150px; /* altura fixa */
-  /* border: 1px solid #ccc;  opcional, para visualizar melhor os contornos */
+  height: auto; /* altura automática para ajustar ao conteúdo */
   display: flex;
-  flex-direction: row;
-  gap: 16px;
+  flex-direction: column; /* direção em coluna para empilhar a imagem e os itens */
+  align-items: center; /* centraliza o conteúdo horizontalmente */
+  gap: 16px; /* espaço entre a imagem e os itens */
+}
+
+.image-container {
+  width: 300px; /* define a largura da imagem */
+  height: 300px; /* define a altura da imagem */
 }
 
 .info-container {
-  width: calc(100% - 112px); /* largura calculada menos a largura da imagem */
+  width: 100%; /* ocupa toda a largura disponível */
+  text-align: center; /* centraliza o texto dentro do info-container */
 }
+
 
 /* Media query para dispositivos móveis */
 @media (max-width: 600px) {
@@ -917,21 +924,31 @@ body{
     align-items: center;
     height: auto; /* altura automática */
   }
-  
+
+  .image-container {
+    width: 70px; /* ajuste da largura da imagem */
+    height: 70px; /* ajuste da altura da imagem */
+    display: flex;
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center; /* centraliza verticalmente */
+  }
+
+  .service-container img {
+    width: 100%; /* garante que a imagem preencha a largura do container */
+    height: auto; /* ajusta a altura proporcionalmente */
+    object-fit: cover; /* ajusta a imagem dentro do container */
+  }
+
   .info-container {
     width: 100%; /* largura total da tela */
     text-align: center; /* centralizar texto */
   }
 
-  .service-container img {
-    width: 100px; /* ajuste da largura da imagem para caber melhor na tela */
-    height: 100px; /* ajuste da altura da imagem para caber melhor na tela */
-  }
-
   .price-cart-container {
+    display: flex;
     flex-direction: row; /* garantir que o preço e o botão estejam lado a lado */
     justify-content: center; /* centralizar o preço e o botão */
-    gap:100px; /* diminuir o espaço entre o preço e o botão */
+    gap: 16px; /* espaço entre o preço e o botão */
   }
 
   .price-cart-container p, .price-cart-container button {
@@ -944,4 +961,5 @@ body{
     padding-right: 20px; /* diminuir padding do botão para aproximar mais */
   }
 }
+
 
