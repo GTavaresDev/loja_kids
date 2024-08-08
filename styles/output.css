@@ -897,7 +897,7 @@ body{
 
 /* Fixando altura e largura para cada retangulo com as peças */
 .service-container {
-  width: 500px; /* largura padrão para desktop */
+  width: 300px; /* largura padrão para desktop */
   height: auto; /* altura automática para ajustar ao conteúdo */
   display: flex;
   flex-direction: column; /* direção em coluna para empilhar a imagem e os itens */
@@ -906,14 +906,20 @@ body{
 }
 
 .image-container {
-  width: 300px; /* define a largura da imagem */
-  height: 300px; /* define a altura da imagem */
+  width: 70px; /* ajuste da largura da imagem */
+  height: 70px; /* ajuste da altura da imagem */
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center; /* centraliza verticalmente */
+  overflow: hidden; /* oculta qualquer conteúdo que ultrapasse os limites do container */
 }
 
-.info-container {
-  width: 100%; /* ocupa toda a largura disponível */
-  text-align: center; /* centraliza o texto dentro do info-container */
+.service-container img {
+  width: 100%; /* garante que a imagem preencha a largura do container */
+  height: 100%; /* garante que a imagem preencha a altura do container */
+  object-fit: cover; /* ajusta a imagem dentro do container, mantendo a proporção */
 }
+
 
 
 /* Media query para dispositivos móveis */
@@ -934,13 +940,13 @@ body{
   }
 
   .service-container img {
-    width: 100%; /* garante que a imagem preencha a largura do container */
+    width: 70%; /* garante que a imagem preencha a largura do container */
     height: auto; /* ajusta a altura proporcionalmente */
     object-fit: cover; /* ajusta a imagem dentro do container */
   }
 
   .info-container {
-    width: 100%; /* largura total da tela */
+    width: 70%; /* largura total da tela */
     text-align: center; /* centralizar texto */
   }
 
