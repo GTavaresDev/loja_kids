@@ -162,9 +162,13 @@ checKoutBtn.addEventListener("click", function(){
     }
 
     // Montar a mensagem com os itens do carrinho
+    const totalPedido = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
     const cartItems = cart.map((item) => {
-        return `${item.name}  \n Quantidade: (${item.quantity}) \n Preço: R$${item.price}  \n\n Valor Final do pedido: ${item.cartTotal}`;
+        return `${item.name}  \n Quantidade: (${item.quantity}) \n Preço: R$${item.price}  \n\n`;
     }).join("");
+    
+    const finalMessage = `${cartItems}\nValor Final do pedido: R$${totalPedido.toFixed(2)}`;
 
     // Codificar a mensagem e o número de telefone
     const message = encodeURIComponent(cartItems);
