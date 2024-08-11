@@ -1,3 +1,4 @@
 {
-  "liveServer.settings.multiRootWorkspaceName": "project-progressus"
+  "liveServer.settings.multiRootWorkspaceName": "project-progressus",
+  "livePreview.defaultPreviewPath": "/index.html"
 }

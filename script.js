@@ -15,13 +15,15 @@ let cart = [];
 // Adicionando o evento de quando clicar em veja meu carrinho vai abrir o display de finalizar a compra 
 cartBtn.addEventListener("click", function () {
     updateCartModal()
-    cartModal.style.display = "flex"
+    cartModal.style.display = "flex"  
+    document.body.style.overflow = "hidden"; // Congelar o fundo 
 })
 
 // Adicionando o evento de quando clicar fora vai fechar o evento a cima do carrinho 
 cartModal.addEventListener("click", function (event) {
     if (event.target === cartModal) {
-        cartModal.style.display = "none"
+        cartModal.style.display = "none";
+        document.body.style.overflow = "auto";
     }
 })
 
