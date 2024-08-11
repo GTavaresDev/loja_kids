@@ -17,20 +17,24 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
     rel="stylesheet" />
+
+    <!--Links para as guias de produtos tipados -->
+    
   <!-- Esse link é de onde eu importei a figura do carrinho-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     integrity="sha512-Fo3r]rZj/k7ujTnHg4CGR2D7kSs®V4LLanw29ksYuRIEzO+tcaEPQgQKaoGNZ/zn28ImRDfuLWnOo7B=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./styles/output.css" />
   <title>Dm Kids</title>
+  
 </head>
 
 <body>
   <!-- Priemiro passo é criar a logo -->
   <header class="w-full h-[420px] bg-black bg-home bg-cover bg-center">
     <div class="w-full h-full flex flex-col justify-center items-center ">
-      <div class="max-w-xs max-h-xs "> <!-- Adicionando um contêiner com tamanho máximo -->
-        <img src="./assets/dmkids_logo.jpg" alt=" Bovinorte Saúde Animal"
+      <div class="max-w-xs max-h-xs">
+        <img src="./assets/dmkids_logo.jpg" alt=" DM Kids"
           class="w-32 h-36 shadow-lg hover:scale-110 duration-200" />
       </div>
       <div class="bg-gray-500 px-4 text-center mt-3 mb-3 rounded-full border border-gray-300">
@@ -38,28 +42,89 @@
           DM KIDS
         </h1>
       </div>
-
-
-
-
       <div class="bg-green-600 px-4 py-1 rounded-lg mt-5 mb-2" id="date-span">
         <span class="text-white font-medium">SEG a SEX - 9:00 às 18:00</span>
       </div>
     </div>
   </header>
 
-  <!-- Aqui é o fim do  cabeçalho -->
+  <!-- Aqui é o fim do cabeçalho -->
 
   <!-- Aqui inicia o texto pré-menu-->
-  <h2 class="text-2xl font-bold md:text-3xl text-center mt-9 mb-6">
+  <h2 class="text-2xl font-bold md:text-3xl text-center mt-9 mb-4">
     Conheça nossos produtos:
   </h2>
+
+  <!-- Mover a lista de navegação para abaixo do título -->
+  <div class="sticky-header">
+    <ul class="navlist">
+      <li><a href="#meninos">Meninos</a></li>
+      <li><a href="#meninas">Meninas</a></li>
+      <li><a href="#infantil">Infantil</a></li>
+      <li><a href="#esportes">Esportes</a></li>
+      <li><a href="#moda">Moda</a></li>
+    </ul>
+  </div>
+  <style>
+      .header-spacer {
+      height: 420px; /* altura do cabeçalho */
+    }
+    .sticky-header {
+      background-color: white;
+      position: -webkit-sticky; /* Para Safari */
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .navlist {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+    .navlist li {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .navlist a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .navlist a:hover {
+      color: gray;
+    }
+    /* Ajustes para tamanhos de tela maiores que 700px */
+    @media (min-width: 700px) {
+      .navlist li {
+        font-size: 1.6rem; /* Aumenta o tamanho da fonte */
+        word-spacing: 15px; /* Aumenta o espaçamento entre palavras */
+        margin: 0 60px;
+        text-align: center;
+      }
+    } 
+    @media (max-width: 600px) {
+      .navlist li {
+        margin: 0 8px;
+        font-size: 1.4rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .navlist li {
+        margin: 0 9px;
+        font-size: 1rem;
+      }
+      
+    }
+  </style>
   <!-- Aqui vai ser detalhado os serviços -->
-  <div id="menu">
+  <div id="meninos">
     <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-14 mx-auto max-w-7xl px-24 mb-16">
       <!-- Seus itens aqui -->
-    
-      <!-- Serviço 1 -->
+  
       <div class="service-container flex gap-2 mt-4">
         <img src="./assets/camisa_nike_masc_mario.jpeg" alt="CAMISA NIKE MARIO MASCULINO" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
         <div class="info-container">
@@ -74,204 +139,309 @@
           </div>
         </div>
       </div>
-      
-      
-      
 
-      <!-- Serviço 2-->
       <div class="service-container flex gap-2 mt-4">
-        <img src="./assets/vestido_azul_dmkids.jpg" alt="VESTIDO AZUL INFANTIL" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <img src="./assets/kit2_lacoste_meninos.jpg" alt="KIT DA LACOSTE - MENINOS" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
         <div class="info-container">
-          <p class="font-bold">VESTIDO AZUL INFANTIL</p>
-          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
-          <p class="text-sm">Do 8 a 12 anos</p>
-          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
-            <p class="font-bold">R$50,00</p>
-            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="VESTIDO AZUL INFANTIL" data-price="50.00">
-              <i class="fa fa-cart-plus text-lg text-white"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Serviço 3-->
-      <div class="service-container flex gap-2 mt-4">
-        <img src="./assets/vestido_rosa_dmkids.jpg" alt="VESTIDO ROSA INFANTIL" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
-        <div class="info-container">
-          <p class="font-bold">VESTIDO ROSA INFANTIL</p>
-          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
-          <p class="text-sm">Do 8 a 12 anos</p>
-          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
-            <p class="font-bold">R$49,90</p>
-            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="VESTIDO ROSA INFANTIL" data-price="49.90">
-              <i class="fa fa-cart-plus text-lg text-white"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      
-
-      <!-- Serviço 4-->
-      <div class="service-container flex gap-2 mt-4">
-        <img src="./assets/camisa_nike_masc_mario.jpeg" alt="CAMISA NIKE MARIO MASCULINO" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
-        <div class="info-container">
-          <p class="font-bold">CAMISA NIKE MARIO MASCULINO</p>
+          <p class="font-bold">KIT DA LACOSTE - MENINOS</p>
           <p class="text-sm">Os mais diversos tamanhos e cores.</p>
           <p class="text-sm">Do 6 a 12 anos</p>
           <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
-            <p class="font-bold">R$35,00</p>
-            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="CAMISA NIKE MARIO MASCULINO" data-price="30.00">
+            <p class="font-bold">R$90,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="KIT DA LACOSTE - MENINOS" data-price="90.00">
               <i class="fa fa-cart-plus text-lg text-white"></i>
             </button>
           </div>
         </div>
       </div>
-      
-      <!-- Serviço 5 -->
+
       <div class="service-container flex gap-2 mt-4">
-        <img src="./assets/camisa_nike_masc_mario.jpeg" alt="CAMISA NIKE MARIO MASCULINO" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <img src="./assets/kits_lacoste_meninos.jpg" alt="KIT 2 DA LACOSTE - MENINOS" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
         <div class="info-container">
-          <p class="font-bold">CAMISA NIKE MARIO MASCULINO</p>
+          <p class="font-bold">KIT 2 DA LACOSTE - MENINOS</p>
           <p class="text-sm">Os mais diversos tamanhos e cores.</p>
           <p class="text-sm">Do 6 a 12 anos</p>
           <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
-            <p class="font-bold">R$35,00</p>
-            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="CAMISA NIKE MARIO MASCULINO" data-price="30.00">
+            <p class="font-bold">R$95,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="KIT 2 DA LACOSTE - MENINOS" data-price="95.00">
               <i class="fa fa-cart-plus text-lg text-white"></i>
             </button>
           </div>
         </div>
       </div>
-      
-      
-      
 
-      <!-- Serviço 6-->
-      <div class="service-container flex gap-2 mt-4">
-        <img src="./assets/vestido_azul_dmkids.jpg" alt="VESTIDO AZUL INFANTIL" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
-        <div class="info-container">
-          <p class="font-bold">VESTIDO AZUL INFANTIL</p>
-          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
-          <p class="text-sm">Do 8 a 12 anos</p>
-          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
-            <p class="font-bold">R$50,00</p>
-            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="VESTIDO AZUL INFANTIL" data-price="50.00">
-              <i class="fa fa-cart-plus text-lg text-white"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Serviço 7-->
-      <div class="service-container flex gap-2 mt-4">
-        <img src="./assets/vestido_rosa_dmkids.jpg" alt="VESTIDO ROSA INFANTIL" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
-        <div class="info-container">
-          <p class="font-bold">VESTIDO ROSA INFANTIL</p>
-          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
-          <p class="text-sm">Do 8 a 12 anos</p>
-          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
-            <p class="font-bold">R$49,90</p>
-            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="VESTIDO ROSA INFANTIL" data-price="49.90">
-              <i class="fa fa-cart-plus text-lg text-white"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      
+ 
 
-      <!-- Serviço 8-->
-      <div class="service-container flex gap-2 mt-4">
-        <img src="./assets/camisa_nike_masc_mario.jpeg" alt="CAMISA NIKE MARIO MASCULINO" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
-        <div class="info-container">
-          <p class="font-bold">CAMISA NIKE MARIO MASCULINO</p>
-          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
-          <p class="text-sm">Do 6 a 12 anos</p>
-          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
-            <p class="font-bold">R$35,00</p>
-            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="CAMISA NIKE MARIO MASCULINO" data-price="30.00">
-              <i class="fa fa-cart-plus text-lg text-white"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Serviço 9 -->
-      <div class="service-container flex gap-2 mt-4">
-        <img src="./assets/camisa_nike_masc_mario.jpeg" alt="CAMISA NIKE MARIO MASCULINO" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
-        <div class="info-container">
-          <p class="font-bold">CAMISA NIKE MARIO MASCULINO</p>
-          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
-          <p class="text-sm">Do 6 a 12 anos</p>
-          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
-            <p class="font-bold">R$35,00</p>
-            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="CAMISA NIKE MARIO MASCULINO" data-price="30.00">
-              <i class="fa fa-cart-plus text-lg text-white"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+ 
       
       
-      
-
-      <!-- Serviço 10-->
-      <div class="service-container flex gap-2 mt-4">
-        <img src="./assets/vestido_azul_dmkids.jpg" alt="VESTIDO AZUL INFANTIL" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
-        <div class="info-container">
-          <p class="font-bold">VESTIDO AZUL INFANTIL</p>
-          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
-          <p class="text-sm">Do 8 a 12 anos</p>
-          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
-            <p class="font-bold">R$50,00</p>
-            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="VESTIDO AZUL INFANTIL" data-price="50.00">
-              <i class="fa fa-cart-plus text-lg text-white"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Serviço 11-->
-      <div class="service-container flex gap-2 mt-4">
-        <img src="./assets/vestido_rosa_dmkids.jpg" alt="VESTIDO ROSA INFANTIL" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
-        <div class="info-container">
-          <p class="font-bold">VESTIDO ROSA INFANTIL</p>
-          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
-          <p class="text-sm">Do 8 a 12 anos</p>
-          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
-            <p class="font-bold">R$49,90</p>
-            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="VESTIDO ROSA INFANTIL" data-price="49.90">
-              <i class="fa fa-cart-plus text-lg text-white"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      
-
-      <!-- Serviço 12-->
-      <div class="service-container flex gap-2 mt-4">
-        <img src="./assets/camisa_nike_masc_mario.jpeg" alt="CAMISA NIKE MARIO MASCULINO" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
-        <div class="info-container">
-          <p class="font-bold">CAMISA NIKE MARIO MASCULINO</p>
-          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
-          <p class="text-sm">Do 6 a 12 anos</p>
-          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
-            <p class="font-bold">R$35,00</p>
-            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="CAMISA NIKE MARIO MASCULINO" data-price="30.00">
-              <i class="fa fa-cart-plus text-lg text-white"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+     
       
 
 
 
     </main>
   </div>
+  <div id="meninas">
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-14 mx-auto max-w-7xl px-24 mb-16">
+      <!-- Seus itens aqui -->
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/vestido_azul_dmkids.jpg" alt="VESTIDO AZUL INFANTIL" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">VESTIDO AZUL INFANTIL</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 8 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$50,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="VESTIDO AZUL INFANTIL" data-price="50.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/conj1_meninas.jpg" alt="CONJUNTINHO 1 MENINAS" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">CONJUNTINHO 1 MENINAS</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 8 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$70,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="CONJUNTINHO 1 MENINAS" data-price="70.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/conj2_meninas.jpg" alt="CONJUNTINHO 2 MENINAS" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">CONJUNTINHO 2 MENINAS</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 8 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$60,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="CONJUNTINHO 2 MENINAS" data-price="60.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/vestido_rosa_dmkids.jpg" alt="VESTIDO ROSA" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">VESTIDO ROSA</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 8 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$60,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="VESTIDO ROSA" data-price="60.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+
+
+
+    </main>
+  </div>
+
+  <div id="infantil">
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-14 mx-auto max-w-7xl px-24 mb-16">
+      <!-- Seus itens aqui -->
+  
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/camisa_nike_masc_mario.jpeg" alt="CAMISA NIKE MARIO MASCULINO" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">CAMISA NIKE MARIO MASCULINO</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 6 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$35,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="CAMISA NIKE MARIO MASCULINO" data-price="30.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/kit2_lacoste_meninos.jpg" alt="KIT DA LACOSTE - MENINOS" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">KIT DA LACOSTE - MENINOS</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 6 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$90,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="KIT DA LACOSTE - MENINOS" data-price="90.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/kits_lacoste_meninos.jpg" alt="KIT 2 DA LACOSTE - MENINOS" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">KIT 2 DA LACOSTE - MENINOS</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 6 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$95,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="KIT 2 DA LACOSTE - MENINOS" data-price="95.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+ 
+
+ 
+      
+      
+     
+      
+
+
+
+    </main>
+  </div>
+  <div id="esportes">
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-14 mx-auto max-w-7xl px-24 mb-16">
+      <!-- Seus itens aqui -->
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/vestido_azul_dmkids.jpg" alt="VESTIDO AZUL INFANTIL" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">VESTIDO AZUL INFANTIL</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 8 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$50,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="VESTIDO AZUL INFANTIL" data-price="50.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/conj1_meninas.jpg" alt="CONJUNTINHO 1 MENINAS" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">CONJUNTINHO 1 MENINAS</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 8 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$70,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="CONJUNTINHO 1 MENINAS" data-price="70.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/conj2_meninas.jpg" alt="CONJUNTINHO 2 MENINAS" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">CONJUNTINHO 2 MENINAS</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 8 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$60,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="CONJUNTINHO 2 MENINAS" data-price="60.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/vestido_rosa_dmkids.jpg" alt="VESTIDO ROSA" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">VESTIDO ROSA</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 8 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$60,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="VESTIDO ROSA" data-price="60.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+
+
+
+    </main>
+  </div>
+
+  <div id="moda">
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-14 mx-auto max-w-7xl px-24 mb-16">
+      <!-- Seus itens aqui -->
+  
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/camisa_nike_masc_mario.jpeg" alt="CAMISA NIKE MARIO MASCULINO" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">CAMISA NIKE MARIO MASCULINO</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 6 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$35,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="CAMISA NIKE MARIO MASCULINO" data-price="30.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/kit2_lacoste_meninos.jpg" alt="KIT DA LACOSTE - MENINOS" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">KIT DA LACOSTE - MENINOS</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 6 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$90,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="KIT DA LACOSTE - MENINOS" data-price="90.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-container flex gap-2 mt-4">
+        <img src="./assets/kits_lacoste_meninos.jpg" alt="KIT 2 DA LACOSTE - MENINOS" class="w-28 h-28 rounded-md hover:scale-110 duration-300" />
+        <div class="info-container">
+          <p class="font-bold">KIT 2 DA LACOSTE - MENINOS</p>
+          <p class="text-sm">Os mais diversos tamanhos e cores.</p>
+          <p class="text-sm">Do 6 a 12 anos</p>
+          <div class="price-cart-container flex items-center gap-1 justify-between mt-3">
+            <p class="font-bold">R$95,00</p>
+            <button class="bg-zinc-900 px-5 py-3 rounded add-to-cart-btn" data-name="KIT 2 DA LACOSTE - MENINOS" data-price="95.00">
+              <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+ 
+
+ 
+      
+      
+     
+      
+
+
+
+    </main>
+  </div>
 
   <!-- Aqui começa a part onde voce Finaliza o Pedido -->
   <div class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99]  items-center justify-center hidden" id="cart-modal">
