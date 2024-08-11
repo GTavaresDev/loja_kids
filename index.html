@@ -7,7 +7,7 @@
   <!-- Criando meta tag para quando a pessoa compartilhar o link do  site-->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="DM KIDS" />
-  <meta property="og:image" content="https://dm-kids.vercel.app/assets/dmkids_logo.jpg />
+  <meta property="og:image" content="https://dm-kids.vercel.app/assets/dmkids_logo.jpg" />
   <meta property="og:description" content="Pequenos encantos, grandes sorrisos! " />
   <meta property="og:site_name" content="DM KIDS" />
 
@@ -67,58 +67,69 @@
   </div>
   <style>
       .header-spacer {
-      height: 420px; /* altura do cabeçalho */
+        height: 420px; /* altura do cabeçalho */
     }
     .sticky-header {
-      background-color: white;
-      position: -webkit-sticky; /* Para Safari */
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid #ccc;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        position: -webkit-sticky; /* Para Safari */
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     .navlist {
-      list-style-type: none;
-      display: flex;
-      justify-content: center;
-      padding: 0;
-      margin: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
     }
     .navlist li {
-      font-size: 1.2rem;
-      text-align: center;
+        font-size: 1.2rem;
+        text-align: center;
+        word-spacing: 50px; /* Aumenta significativamente o espaçamento entre palavras */
     }
     .navlist a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
     }
     .navlist a:hover {
-      color: gray;
+        color: gray;
     }
     /* Ajustes para tamanhos de tela maiores que 700px */
     @media (min-width: 700px) {
-      .navlist li {
-        font-size: 1.6rem; /* Aumenta o tamanho da fonte */
-        word-spacing: 15px; /* Aumenta o espaçamento entre palavras */
-        margin: 0 60px;
-        text-align: center;
-      }
-    } 
+        .navlist li {
+            margin: 10px 60px; /* Ajusta a margem */
+            font-size: 1.7rem; /* Reduz o tamanho da fonte */
+        }
+        .navlist a {
+            word-spacing: 2%; /* Espaçamento menor entre palavras */
+            letter-spacing: 0.5px; /* Espaçamento menor entre letras */
+        }
+    }
+
     @media (max-width: 600px) {
       .navlist li {
-        margin: 0 8px;
+        margin: 10px 5px; /* Ajusta a margem */
         font-size: 1.4rem;
       }
     }
     @media (max-width: 480px) {
       .navlist li {
-        margin: 0 9px;
-        font-size: 1rem;
+        margin: 10px 5px; /* Ajusta a margem */
+        font-size: 0.99rem; /* Reduz o tamanho da fonte */
       }
-      
+
+      .navlist a {
+        word-spacing: 2px; /* Espaçamento menor entre palavras */
+        letter-spacing: 0.5px; /* Espaçamento menor entre letras */
+      }
     }
+
+  
+      
   </style>
   <!-- Aqui vai ser detalhado os serviços -->
   <div id="meninos">
