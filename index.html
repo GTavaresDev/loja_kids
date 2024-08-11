@@ -84,6 +84,26 @@
 .hide-header {
     display: none;
 }
+.modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      min-width: 300px;
+      max-width: 500px;
+    }
+
   
   </style>
   
@@ -479,22 +499,37 @@
     </main>
   </div>
 </div>
-  <!-- Aqui começa a part onde voce Finaliza o Pedido -->
-  <div id="cart-modal" class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] flex items-center justify-center hidden">
-    <div class="bg-white p-5 rounded-md max-w-[20%] md:max-w-[180px] max-h-[10vh] flex flex-col">
-        <h2 class="text-center font-bold text-base mb-1">Meu Carrinho:</h2>
-        <div id="cart-items" class="flex flex-col space-y-1 mb-2 max-h-[30px] overflow-y-auto">
-            <!-- Adicione aqui os itens do carrinho -->
-        </div>
-        <p class="font-bold text-xs">Total: R$ <span id="cart-total">0.00</span></p>
-        <p class="font-bold text-xs mt-1">Forma de Pagamento:</p>
-        <input type="text" placeholder="Digite sua personalização..." id="personalise" class="w-full border-2 p-0.5 rounded text-xs" />
-        <p id="addres-warn" class="text-red-500 text-xs hidden">Digite sua forma de pagamento por favor!</p>
-        <div class="flex items-center justify-between mt-1 w-full">
-            <button id="close-modal-btn" class="bg-gray-300 px-2 py-0.5 rounded text-xs">Fechar</button>
-            <button id="chekout-btn" class="bg-green-500 text-white px-2 py-0.5 rounded text-xs">Finalizar Pedido</button>
-        </div>
+
+<!-- Modal de seleção de tamanho -->
+<div id="size-modal" class="modal">
+  <div class="modal-content">
+    <h2 class="text-center font-bold">Escolha o tamanho</h2>
+    <select id="size-select" class="w-full border-2 p-2 rounded my-2">
+      <option value="P">P</option>
+      <option value="M">M</option>
+      <option value="G">G</option>
+      <option value="GG">GG</option>
+    </select>
+    <div class="flex justify-between mt-4">
+      <button id="confirm-size-btn" class="bg-green-500 text-white px-4 py-1 rounded">Confirmar</button>
+      <button id="cancel-size-btn" class="bg-red-500 text-white px-4 py-1 rounded">Cancelar</button>
     </div>
+  </div>
+</div>
+ <!-- Modal do carrinho -->
+ <div id="cart-modal" class="modal">
+  <div class="modal-content">
+    <h2 class="text-center font-bold text-2xl mb-2">Meu Carrinho:</h2>
+    <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
+    <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
+    <p class="font-bold mt-4">Forma de Pagamento:</p>
+    <input type="text" placeholder="Digite sua personalização..." id="personalise" class="w-full border-2 p-1 rounded my-1" />
+    <p class="text-red-500 hidden" id="addres-warn">Digite sua forma de pagamento por favor!</p>
+    <div class="flex items-center justify-between mt-5 w-full">
+      <button id="close-modal-btn" class="bg-red-500 text-white px-4 py-2 rounded">Fechar</button>
+      <button id="chekout-btn" class="bg-green-500 text-white px-4 py-2 rounded">Finalizar Pedido</button>
+    </div>
+  </div>
 </div>
 
 

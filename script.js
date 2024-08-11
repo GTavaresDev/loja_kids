@@ -1,220 +1,202 @@
-const menu = document.getElementById("menu")
-const cartBtn = document.getElementById("cart-btn")
-const cartModal = document.getElementById("cart-modal")
-const cartItemsContainer = document.getElementById("cart-items")
-const cartTotal = document.getElementById("cart-total")
-const checKoutBtn = document.getElementById("chekout-btn")
-const closeModalBtn = document.getElementById("close-modal-btn")
-const cartCounter = document.getElementById("cart-count")
-const addressInput = document.getElementById("personalise")
-const addressWarn = document.getElementById("addres-warn")
-const abrirInsta = document.getElementById("abrir-insta")
+// Referências aos elementos do DOM
+const cartBtn = document.getElementById("cart-btn");
+const cartModal = document.getElementById("cart-modal");
+const closeModalBtn = document.getElementById("close-modal-btn");
+const cartItemsContainer = document.getElementById("cart-items");
+const cartTotal = document.getElementById("cart-total");
+const cartCounter = document.getElementById("cart-count");
+const checKoutBtn = document.getElementById("chekout-btn");
+const addressInput = document.getElementById("personalise");
+const addressWarn = document.getElementById("addres-warn");
+
+const sizeModal = document.getElementById("size-modal");
+const sizeSelect = document.getElementById("size-select");
+const confirmSizeBtn = document.getElementById("confirm-size-btn");
+const cancelSizeBtn = document.getElementById("cancel-size-btn");
 
 let cart = [];
+let selectedProduct = null;
 
-// Adicionando o evento de quando clicar em veja meu carrinho vai abrir o display de finalizar a compra 
+// Adicionando o evento de clique para abrir o carrinho
 cartBtn.addEventListener("click", function () {
-    updateCartModal()
-    cartModal.style.display = "flex"  
-    document.body.style.overflow = "hidden"; // Congelar o fundo 
-})
+    updateCartModal();
+    cartModal.style.display = "flex";
+    document.body.style.overflow = "hidden"; // Congelar o fundo
+});
 
-// Adicionando o evento de quando clicar fora vai fechar o evento a cima do carrinho 
+// Fechar o carrinho ao clicar fora do modal
 cartModal.addEventListener("click", function (event) {
     if (event.target === cartModal) {
         cartModal.style.display = "none";
         document.body.style.overflow = "auto";
     }
-})
+});
 
-// Adicionando o evento de quando clicar no botão "fechar" vai fechar o carrinho
+// Fechar o carrinho ao clicar no botão "Fechar"
 closeModalBtn.addEventListener("click", function () {
-    cartModal.style.display = "none"
+    cartModal.style.display = "none";
     document.body.style.overflow = "auto";
-})
+});
 
-// Adicionando o evento de quando clicar no carrinho ao lado serviço vai adicionar ao carrinho
-menu.addEventListener("click", function (event) {
-    let parentButton = event.target.closest(".add-to-cart-btn")
-    if (parentButton) {
-        const name = parentButton.getAttribute("data-name")
-        const price = parseFloat(parentButton.getAttribute("data-price"))
-        
-        // Adiciona no carrinho
-        addToCart(name, price)
-    }
-})
-
-
-// Função para adicionar no carrinho 
-function addToCart(name, price) {
-    const existingItem = cart.find(item => item.name === name)
-    if (existingItem) {
-        // Se o item já existir apenas aumentará +1 unidade
-        existingItem.quantity += 1;
-    } else {
-        cart.push({
-            name,
-            price,
-            quantity: 1,
-        })
-    }
-    updateCartModal()
-}
-
-// Atualizando o carrinho com os items
+// Atualizar o modal do carrinho
 function updateCartModal() {
-    // Limpa o conteúdo atual do container dos itens do carrinho
     cartItemsContainer.innerHTML = "";
 
-    // Inicializa as variáveis para calcular o total e a quantidade total de itens no carrinho
     let total = 0;
     let totalQuantity = 0;
 
-    // Percorre todos os itens no carrinho
     cart.forEach(item => {
-        // Cria um novo elemento div para cada item do carrinho
         const cartItemElement = document.createElement("div");
-        // Adiciona classes CSS ao elemento div para estilização
         cartItemElement.classList.add("flex", "justify-between", "mb-4", "flex-col");
 
-        // Define o conteúdo HTML do elemento div, incluindo o nome, quantidade e preço do item, e um botão de remoção
         cartItemElement.innerHTML = `
         <div class="flex items-center justify-between">
             <div>
-            <p class="font-medium">${item.name} </p>
+            <p class="font-medium">${item.name} (Tamanho: ${item.size})</p>
             <p>Qtd: ${item.quantity}</p>
             <p class="font-medium mt-2">R$ ${item.price.toFixed(2)}</p>
             </div>
-                <button class="remove-from-cart-btn" data-name="${item.name}">
-                    Remover
-                </button>          
+            <button class="remove-from-cart-btn" data-name="${item.name}" data-size="${item.size}">
+                Remover
+            </button>          
         </div>
         `;
 
-        // Adiciona o preço do item multiplicado pela quantidade ao total geral
         total += item.price * item.quantity;
-
-        // Adiciona a quantidade do item à quantidade total de itens no carrinho
         totalQuantity += item.quantity;
 
-        // Adiciona o elemento div do item do carrinho ao container dos itens do carrinho
         cartItemsContainer.appendChild(cartItemElement);
     });
 
-    // Atualiza o texto do elemento cartTotal para mostrar o total formatado como moeda brasileira
     cartTotal.textContent = total.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL"
     });
 
-    // Atualiza o texto do elemento cartCounter para mostrar a quantidade total de itens no carrinho
     cartCounter.innerHTML = totalQuantity;
 }
 
+// Adicionar produto ao carrinho
+function addToCart(name, price, size) {
+    const existingItem = cart.find(item => item.name === name && item.size === size);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            name,
+            price,
+            size,
+            quantity: 1,
+        });
+    }
+    updateCartModal();
+}
 
-// Função para remover o item do carrinho
-cartItemsContainer.addEventListener("click", function(event){
+// Remover item do carrinho
+cartItemsContainer.addEventListener("click", function (event) {
     if (event.target.classList.contains("remove-from-cart-btn")) {
-        const name = event.target.getAttribute("data-name")
-        removeItemCard(name);
+        const name = event.target.getAttribute("data-name");
+        const size = event.target.getAttribute("data-size");
+        removeItemCard(name, size);
     }
-    
-})
-function removeItemCard(name){
-    const index = cart.findIndex (item => item.name === name)
-    if(index !== -1){
-       const item = cart[index]
-       if(item.quantity > 1){
-        item.quantity -= 1
-        updateCartModal()
-        return
-       }
-       cart.splice(index, 1 )
-       updateCartModal()
-       
+});
+
+function removeItemCard(name, size) {
+    const index = cart.findIndex(item => item.name === name && item.size === size);
+    if (index !== -1) {
+        const item = cart[index];
+        if (item.quantity > 1) {
+            item.quantity -= 1;
+        } else {
+            cart.splice(index, 1);
+        }
+        updateCartModal();
     }
-} 
+}
 
-addressInput.addEventListener("input", function(event){
-    let inputValue = event.target.value;
+// Abrir o modal de seleção de tamanho
+function openSizeModal(name, price) {
+    selectedProduct = { name, price };
+    sizeModal.style.display = "flex";
+}
 
-    // Agora se eu escrever algo no personalise a borda vermelha some
-    if(inputValue !== "" ){
-        addressInput.classList.remove("border-red-500")
-        addressWarn.classList.add("hidden")
+// Confirmar seleção de tamanho
+confirmSizeBtn.addEventListener("click", function () {
+    if (selectedProduct) {
+        const size = sizeSelect.value;
+        addToCart(selectedProduct.name, selectedProduct.price, size);
+        sizeModal.style.display = "none";
+        document.body.style.overflow = "auto";
     }
+});
 
+// Cancelar seleção de tamanho
+cancelSizeBtn.addEventListener("click", function () {
+    sizeModal.style.display = "none";
+    document.body.style.overflow = "auto";
+});
 
+// Adicionar evento de clique para abrir o modal de seleção de tamanho ao adicionar ao carrinho
+document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+    button.addEventListener("click", function () {
+        const name = button.getAttribute("data-name");
+        const price = parseFloat(button.getAttribute("data-price"));
+        openSizeModal(name, price);
+    });
+});
 
-})
-
-//Finalizar pedido
-checKoutBtn.addEventListener("click", function(){
-    // Verificar se há itens no carrinho
+// Finalizar pedido
+checKoutBtn.addEventListener("click", function () {
     if (cart.length === 0) {
         return;
     }
 
-    // Verificar se o campo de endereço está vazio
     if (addressInput.value === "") {
         addressWarn.classList.remove("hidden");
         addressInput.classList.add("border-red-500");
-        return; // Se o campo estiver vazio, não prosseguir com o pedido
+        return;
     }
 
-    // Montar a mensagem com os itens do carrinho
     const totalPedido = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
-    const cartItems = cart.map((item) => {
-        return `${item.name}  \n Quantidade: (${item.quantity}) \n Preço: R$${item.price}  \n\n`;
+    const cartItems = cart.map(item => {
+        return `${item.name} (Tamanho: ${item.size})\nQuantidade: ${item.quantity}\nPreço: R$${item.price.toFixed(2)}\n\n`;
     }).join("");
-    
-    const finalMessage = `${cartItems}\nValor Final do pedido: R$${totalPedido.toFixed(2)}`;
-    
-    // Codificar a mensagem e o número de telefone
-    const message = encodeURIComponent(finalMessage); // Codifica a mensagem completa, incluindo o valor final
-    const phone = "62982190366";
-    
-    // Abrir o WhatsApp com a mensagem e informações adicionais
-    window.open(`https://wa.me/${phone}?text=${message}%20Forma%20de%20pagamento:%20${encodeURIComponent(addressInput.value)}`, "_blank");
-    
 
-    // Limpar o carrinho após o pedido ser enviado
+    const finalMessage = `${cartItems}\nValor Final do pedido: R$${totalPedido.toFixed(2)}`;
+
+    const message = encodeURIComponent(finalMessage);
+    const phone = "62982190366";
+
+    window.open(`https://wa.me/${phone}?text=${message}%20Forma%20de%20pagamento:%20${encodeURIComponent(addressInput.value)}`, "_blank");
+
     cart = [];
-    updateCartModal(); // Função para atualizar a exibição do carrinho, se necessário
+    updateCartModal();
 });
 
-
-
-
-//Adicionando verificação se o pedido está sendo feito durante o horario de fucionamento
-function checkRestaurantOpen(){
+// Função para verificar se o restaurante está aberto
+function checkRestaurantOpen() {
     const data = new Date();
     const hora = data.getHours();
     const diaDaSemana = data.getDay(); // 0 (Domingo) a 6 (Sábado)
 
-    // Restringir o horário de segunda a sexta-feira, das 9h às 18h
     const estaAberto = (diaDaSemana >= 1 && diaDaSemana <= 5) && (hora >= 9 && hora < 18);
-    
+
     return estaAberto;
-    // True = Estamos aberto
 }
 
-//Aqui vai verrificar o horario se não estivermos aberto a tarja vai ficar vermelha
-const spanItem = document.getElementById("date-span")
-const isOpen = checkRestaurantOpen()
+const spanItem = document.getElementById("date-span");
+const isOpen = checkRestaurantOpen();
 
-if(isOpen){
-    spanItem.classList.remove("bg-red-500")
-    spanItem.classList.add("bg-green-700")
-}else{
-    spanItem.classList.remove("bg-green-700")
-    spanItem.classList.add("bg-red-500")
+if (isOpen) {
+    spanItem.classList.remove("bg-red-500");
+    spanItem.classList.add("bg-green-700");
+} else {
+    spanItem.classList.remove("bg-green-700");
+    spanItem.classList.add("bg-red-500");
 }
 
-// Criando o clique do insta 
- abrirInsta.addEventListener("click", function () {
-    window.open("https://www.instagram.com/dmkidsgo/") 
-})
-
+// Abrir Instagram
+document.getElementById("abrir-insta").addEventListener("click", function () {
+    window.open("https://www.instagram.com/dmkidsgo/");
+});
