@@ -25,7 +25,58 @@
     integrity="sha512-Fo3r]rZj/k7ujTnHg4CGR2D7kSs®V4LLanw29ksYuRIEzO+tcaEPQgQKaoGNZ/zn28ImRDfuLWnOo7B=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./styles/output.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <title>Dm Kids</title>
+  <style>
+    .sticky-header {
+      background-color: white;
+      position: -webkit-sticky; /* Para Safari */
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 10px 0; /* Adiciona padding para melhor visibilidade */
+      width: 100%; /* Garante que a navegação ocupe toda a largura */
+    }
+
+    .swiper-container {
+      width: 100%;
+      height: auto; /* Ajuste conforme necessário */
+      overflow: hidden;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+   
+    .swiper-slide a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 10px 15px;
+      box-sizing: border-box;
+    }
+
+    .swiper-slide a:hover {
+      color: gray;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    }
+    .swiper-pagination-bullet {
+        width: 5px; /* Ajusta o tamanho das bolinhas de paginação */
+        height: 5px; /* Ajusta o tamanho das bolinhas de paginação */
+      }
+    @media (max-width: 450px) {
+    
+      .swiper-pagination-bullet {
+        width: 5px; /* Ajusta o tamanho das bolinhas de paginação */
+        height: 5px; /* Ajusta o tamanho das bolinhas de paginação */
+      }
+    }
+  </style>
   
 </head>
 
@@ -56,82 +107,40 @@
   </h2>
 
   <!-- Mover a lista de navegação para abaixo do título -->
-  <div class="sticky-header">
-    <ul class="navlist">
-      <li><a href="#meninos">Meninos</a></li>
-      <li><a href="#meninas">Meninas</a></li>
-      <li><a href="#infantil">Infantil</a></li>
-      <li><a href="#esportes">Esportes</a></li>
-      <li><a href="#moda">Moda</a></li>
-    </ul>
+  <div class="swiper-container sticky-header">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><a href="#meninos">Conjuntos</a></div>
+      <div class="swiper-slide"><a href="#meninos">Jeans</a></div>
+      <div class="swiper-slide"><a href="#meninos">Macacões</a></div>
+      <div class="swiper-slide"><a href="#meninos">Vestidos</a></div>
+      <div class="swiper-slide"><a href="#meninas">Calçados</a></div>
+      <div class="swiper-slide"><a href="#infantil">Jaquetas</a></div>
+      <div class="swiper-slide"><a href="#esportes">Acessórios</a></div>
+      <div class="swiper-slide"><a href="#moda">Moda Praia</a></div>
+    </div>
+    
+    <!-- Adicione paginação se desejar -->
+    <div class="swiper-pagination"></div>
   </div>
-  <style>
-      .header-spacer {
-        height: 420px; /* altura do cabeçalho */
-    }
-    .sticky-header {
-        background-color: white;
-        position: -webkit-sticky; /* Para Safari */
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        border-bottom: 1px solid #ccc;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .navlist {
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        padding: 0;
-        margin: 0;
-    }
-    .navlist li {
-        font-size: 1.2rem;
-        text-align: center;
-        word-spacing: 50px; /* Aumenta significativamente o espaçamento entre palavras */
-    }
-    .navlist a {
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-    }
-    .navlist a:hover {
-        color: gray;
-    }
-    /* Ajustes para tamanhos de tela maiores que 700px */
-    @media (min-width: 700px) {
-        .navlist li {
-            margin: 10px 60px; /* Ajusta a margem */
-            font-size: 1.7rem; /* Reduz o tamanho da fonte */
-        }
-        .navlist a {
-            word-spacing: 2%; /* Espaçamento menor entre palavras */
-            letter-spacing: 0.5px; /* Espaçamento menor entre letras */
-        }
-    }
 
-    @media (max-width: 600px) {
-      .navlist li {
-        margin: 10px 5px; /* Ajusta a margem */
-        font-size: 1.4rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .navlist li {
-        margin: 10px 5px; /* Ajusta a margem */
-        font-size: 0.99rem; /* Reduz o tamanho da fonte */
-        
-      }
-
-      .navlist a {
-        word-spacing: 2px; /* Espaçamento menor entre palavras */
-        letter-spacing: 0.5px; /* Espaçamento menor entre letras */
-      }
-    }
-
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 3,
+      spaceBetween: 10,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      loop: true,
+    });
+  </script>
   
-      
-  </style>
   <!-- Aqui vai ser detalhado os serviços -->
   <div id="meninos">
     <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-14 mx-auto max-w-7xl px-24 mb-16">
