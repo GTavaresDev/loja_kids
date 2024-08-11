@@ -163,7 +163,7 @@ checKoutBtn.addEventListener("click", function () {
         return `${item.name} (Tamanho: ${item.size})\nQuantidade: ${item.quantity}\nPreço: R$${item.price.toFixed(2)}\n\n\n\t`;
     }).join("");
 
-    const finalMessage = `${cartItems}\n\n\n\n Valor Final do pedido: R$${totalPedido.toFixed(2)}`;
+    const finalMessage = `${cartItems}\n\n Valor Final do pedido: R$${totalPedido.toFixed(2)}\n\n`;
 
     const message = encodeURIComponent(finalMessage);
     const phone = "62982190366";
