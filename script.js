@@ -11,15 +11,6 @@ const addressWarn = document.getElementById("addres-warn")
 const abrirInsta = document.getElementById("abrir-insta")
 
 let cart = [];
-// Função para abrir o modal e desativar o scroll no body
-document.getElementById('cart-modal').classList.remove('hidden');
-document.body.classList.add('modal-open');
-
-// Função para fechar o modal e reativar o scroll no body
-document.getElementById('close-modal-btn').addEventListener('click', function() {
-  document.getElementById('cart-modal').classList.add('hidden');
-  document.body.classList.remove('modal-open');
-});
 
 // Adicionando o evento de quando clicar em veja meu carrinho vai abrir o display de finalizar a compra 
 cartBtn.addEventListener("click", function () {
