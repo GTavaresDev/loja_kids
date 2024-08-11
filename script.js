@@ -160,7 +160,7 @@ checKoutBtn.addEventListener("click", function () {
     const totalPedido = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
     const cartItems = cart.map(item => {
-        return `${item.name} (Tamanho: ${item.size})\nQuantidade: ${item.quantity}\nPreço: R$${item.price.toFixed(2)}\n\n`;
+        return `${item.name} (Tamanho: ${item.size})\nQuantidade: ${item.quantity}\nPreço: R$${item.price.toFixed(2)}\n\n\n\t`;
     }).join("");
 
     const finalMessage = `${cartItems}\n\n\n\n Valor Final do pedido: R$${totalPedido.toFixed(2)}`;
