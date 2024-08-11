@@ -215,3 +215,23 @@ if(isOpen){
  abrirInsta.addEventListener("click", function () {
     window.open("https://www.instagram.com/dmkidsgo/") 
 })
+
+
+// script.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuButton = document.getElementById('menu-button');
+    const optionsMenu = document.getElementById('options-menu');
+
+    // Função para alternar a visibilidade do menu
+    menuButton.addEventListener('click', function() {
+        optionsMenu.classList.toggle('hidden');
+    });
+
+    // Fecha o menu se o usuário clicar fora dele
+    document.addEventListener('click', function(event) {
+        if (!menuButton.contains(event.target) && !optionsMenu.contains(event.target)) {
+            optionsMenu.classList.add('hidden');
+        }
+    });
+});
