@@ -166,7 +166,7 @@ checKoutBtn.addEventListener("click", function () {
     const finalMessage = `${cartItems}\n\n Valor Final do pedido: R$${totalPedido.toFixed(2)}\n\n`;
 
     const message = encodeURIComponent(finalMessage);
-    const phone = "62982190366";
+    const phone = "62994279139";
 
     window.open(`https://wa.me/${phone}?text=${message}%20Forma%20de%20pagamento:%20${encodeURIComponent(addressInput.value)}`, "_blank");
 
@@ -198,5 +198,5 @@ if (isOpen) {
 
 // Abrir Instagram
 document.getElementById("abrir-insta").addEventListener("click", function () {
-    window.open("https://www.instagram.com/dmkidsgo/");
+    window.open("https://www.instagram.com/progressuswebs/");
 });
